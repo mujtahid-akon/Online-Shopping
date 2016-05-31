@@ -1,0 +1,66 @@
+.first{
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: 300px;
+	background-color: #FFE69A;
+}
+.first button{
+	width:200px;
+	height: 50px;
+	background-color: #FFE69A;
+	color: #4C4C4C;
+	border:1px solid #4C4C4C;
+	margin-left: 40%;
+	margin-top: 10%;
+	
+}
+.second{
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: 300px;
+	background-color: #4C4C4C;
+}
+.third{
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: 300px;
+	background-color: #3F7577;	
+	position:absolute;
+	transition:1s;
+}
+
+.third button{
+	width:200px;
+	height: 50px;
+	background-color: #3F7577;
+	color: #fff;
+	border:1px solid;
+	margin-left: 40%;
+	margin-top: 10%;
+	z-index: -1;
+	
+}
+.outside_third{
+	display: block;
+	overflow: hidden;
+	height: 1000px;
+	width: 100%;
+	background-color:rgba(76,76,76,0.7);
+	padding: 10% 0%;
+	position: absolute;
+	top:0px;
+	transition:1s;
+	display: none;
+	
+}
+
+
+
+
+
+
+
+

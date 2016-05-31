@@ -1,0 +1,312 @@
+body {
+	background: #fff;
+	margin: 0;
+	padding: 0;
+	font-family: arial;
+}
+#login_form {
+	width: 300px;
+	background: #f0f0f0 url(../img/login_bg.jpg) repeat-x 0 0;
+	border: 1px solid white;
+	margin: 250px auto 0;
+	padding: 1em;
+	-moz-border-radius: 3px;
+}
+h1,h2,h3,h4,h5 {
+	margin-top: 0;
+	font-family: arial black, arial;
+	text-align: center;
+}
+
+input[type=text], input[type=password] {
+	display: block;
+	margin: 0 0 1em 0;
+	width: 280px;
+	border: 5px;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	padding: 1em;
+}
+
+input[type=submit], form a {
+	border: none;
+	margin-right: 1em;
+	padding: 6px;
+	text-decoration: none;
+	font-size: 12px;
+	-moz-border-radius: 4px;
+	background: #348075;
+	color: white;
+	box-shadow: 0 1px 0 white;
+	-moz-box-shadow: 0 1px 0 white;
+	-webkit-box-shadow: 0 1px 0 white;
+
+}
+
+input[type=submit]:hover, form a:hover {
+	background: #287368;
+	cursor: pointer;
+}
+
+
+
+
+/* Validation error messages */
+
+.error {
+	color: #393939;
+	font-size: 15px;
+}
+
+fieldset {
+	width: 300px;
+	margin: auto;
+	margin-bottom: 2em;
+	display: block;
+}
+
+/* FOR FUN */
+
+h1 {
+	text-shadow: 0 1px 0 white;
+}
+
+/* Not necessary. Just the "tutorial created by" stuff at the bottom */
+
+#tutInfo {
+	background: #e3e3e3;
+	border-top: 1px solid white;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: .7em .7em .7em 2em;
+}
+
+.btn-cart {
+    background: #ed1b24;
+    background: #f9b00c;
+    background: #FCDB00;
+    color: #333;
+    border-color: #FCDB00;
+    border-radius: 2px;
+    padding: 7px 20px;
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.15) inset;
+    font-family: Roboto Condensed, Helvetica Neue, Roboto, Helvetica, arial, sans-serif;
+    text-transform: uppercase;
+    margin-left:7px;
+}
+
+.btn-cart:hover {
+    background: #ed1b24;
+    background: #f9b00c;
+    background: #FCD300;
+    color: #333;
+    border-color: #FCDB00;
+    border-radius: 2px;
+    padding: 7px 20px;
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.15) inset;
+    font-family: Roboto Condensed, Helvetica Neue, Roboto, Helvetica, arial, sans-serif;
+    text-transform: uppercase;
+}
+.btn-cart:active {
+    background: #FCD300;
+    color: #333;
+    border-color: #FCDB00;
+    border-radius: 2px;
+    padding: 7px 20px;
+    box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.15) inset;
+    font-family: Roboto Condensed, Helvetica Neue, Roboto, Helvetica, arial, sans-serif;
+    text-transform: uppercase;
+}
+
+.action-control .q-mini {
+    border-radius: 2px;
+    border: solid 1px #ddd;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2) inset;
+    height: 26px;
+    margin-bottom: 0;
+    margin-left: 5px;
+    text-align: center;
+    width: 40px;
+}
+
+.action-control label {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 36px;
+    margin-bottom: 10px;
+    padding: 3px 5px;
+    width: auto;
+}
+
+.product {
+    text-align: center;
+    padding: 10px 0;
+    border: solid 1px #ddd;
+    position: relative;
+    transition:.5s;
+    margin:20px 0px;
+}
+    
+.product:hover {
+    text-align: center;
+    padding: 10px 0;
+    border: solid 1px #5CB85C;
+    position: relative;
+    margin-top:-10px;
+}
+.product .image {
+    height: 170px;
+}
+
+div.image {
+    display: block;
+    height: 177px;
+    overflow: hidden;
+}
+.product .description {
+    height: 62px;
+}
+
+.product .description {
+    min-height: 80px !important;
+    padding: 15px 10px 10px;
+}
+div.description {
+    height: 70px;
+    overflow: hidden;
+    display: block;
+}
+
+.product .price {
+    color: #FE5757;
+    display: block;
+    font-family: Roboto Condensed,Helvetica Neue,Roboto,Helvetica,arial,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.description h4 {
+    font-family: Roboto, Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+    padding-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: -0.1px;
+    line-height: 18px;
+    text-transform: capitalize;
+    margin: 0px;
+}
+.description h4 a
+{
+    text-decoration: none;
+}
+.description h4:hover {
+    font-family: Roboto, Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+    padding-bottom: 5px;
+    color: #5CB85C;
+    font-size: 14px;
+    letter-spacing: -0.1px;
+    line-height: 18px;
+    text-transform: capitalize;
+    text-decoration: none;
+    margin: 0px;
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+.tab-pane .product-row .item {
+    min-height: 366px;
+    margin-top: 30px !important;
+}
+.one_item{
+/*    background-color: #fff !important;
+    border-radius: 5px;*/
+}
+.add_2_cart{
+    background-color: transparent !important;
+    text-decoration: none !important;;
+    list-style: none !important ;
+    text-transform: uppercase;
+    color: #000009 !important;
+}
+.cart{
+    background-color:#fff;
+    display: block;
+    overflow: hidden;
+    width: 1220px !important;
+    border:1px solid #C6C6C6;
+    margin-left: 62px;
+    margin-bottom:50px;
+    padding: 20px;
+}
+.cart_item{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    border:1px solid #C6C6C6;
+    margin:10px 0px;
+    padding:5px;
+}
+.item_name{
+    display: block;
+    overflow: hidden;
+    width: 50%;
+    background-color: #fff;
+    float:left;
+    padding: 10px;
+    
+}
+.item_subtotal{
+    display: block;
+    overflow: hidden;
+    width: 12%;
+    background-color: #fff;
+    float: left;
+}
+.item_remove{
+    display: block;
+    overflow: hidden;
+    width: 3%;    
+    float: left;
+}
+.total{
+    
+}
+.sum{
+    float:left;
+}
+.sum_label{
+    float: left;
+    width: 50%;
+}
+
+.select_div{
+    display: block;
+}
+.order_button{
+    width: 100%;
+    display: block;
+    float: none;
+}
+.order_button a{
+    border: 1px solid #C6C6C6;
+    padding: 5px;
+    border-radius: 10px;
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
