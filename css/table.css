@@ -1,0 +1,60 @@
+.vouchar{
+	font-family: "Cambria";
+	display: block;
+	overflow: hidden;
+	width: 700px;
+	border: 1px solid #343434;
+	padding: 20px;
+	margin-left: 20%;
+	border-top: 5px solid;
+	border-bottom: 2px solid;
+	box-shadow: 0px 2px 5px;
+	margin-top: 3%;
+	
+}
+.vouchar h2{
+	display: block;
+	overflow: hidden;
+	margin-left: 30%;
+}
+.vouchar_details{
+	display: block;
+	overflow: hidden;
+	width:200px;
+	margin-left: 30%;
+}
+.o_total
+{
+	display: block;
+	overflow: hidden;
+	margin-left: 62%;
+	
+	
+}
+.o_status{
+	display: block;
+	overflow: hidden;
+	float: left;
+	
+}
+.status {
+    display: block;
+    float: left;
+    font-size: 17px;
+    color: #ED1010;
+		padding-left: 10px;
+}
+.view_order{
+	display: block;
+	overflow: hidden;
+	padding-left: 215px;
+	
+}
+.view_order a{
+	text-decoration: none;
+}
+
+
+
+
+

@@ -1,0 +1,248 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.eot');
+  src: url('../fonts/fontello.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff') format('woff'),
+       url('../fonts/fontello.ttf') format('truetype'),
+       url('../fonts/fontello.svg#fontello') format('svg');
+  font-weight: normal; font-style: normal;
+}
+
+[class*="icon-"] {
+  font-family: 'fontello';
+  font-style: normal;
+  font-size: 3em;
+  speak: none;
+}
+
+.icon-home:after { content: "\2302"; }
+.icon-cog:after { content: "\2699"; }
+.icon-cw:after { content: "\27f3"; }
+.icon-location:after { content: "\e724"; }
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  box-sizing:         border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: #444;
+  font-size: 100%;
+  /*background: #f7f7f7 url(../images/bg.png) repeat center top;*/
+}
+
+body {
+  font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-size:18px;
+  font-size:1.125rem;
+  line-height: 1.5;
+  background: #f7f7f7 url(../images/1/tree_bark.png) repeat;
+}
+
+header {
+  margin-bottom: 80px;
+}
+
+a {
+  text-decoration: none;
+  color: #DD6C4F;
+}
+
+a:hover {
+  text-decoration:underline;
+}
+
+a:focus {
+  outline: none;
+}
+
+h1, p, p + p, ul
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 36px;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
+.page-wrap {
+  width: 960px;
+  margin: 80px auto;
+}
+
+.nav_new {
+  list-style: none;
+  text-align: center;
+}
+
+.nav_new li {
+  position: relative;
+  display: inline-block;
+  margin-right: -4px; /* See: http://css-tricks.com/fighting-the-space-between-inline-block-elements/ */
+}
+
+.nav_new li:before {
+  content: "";
+  display: block;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  z-index: -1;
+}
+
+.nav_new a {
+  display: block;
+  background-color: #f7f7f7;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+  background-image: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7);
+  background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7);
+  background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7);
+  background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
+  color: #a7a7a7;
+  margin: 36px;
+  width: 144px;
+  height: 144px;
+  position: relative;
+  text-align: center;
+  line-height: 144px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+  color: rgb(158, 155, 149);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.nav_new a:before {
+  content: "";
+  display: block;
+  background: #fff;
+  border-top: 2px solid #ddd;
+  position: absolute;
+  top: -18px;
+  left: -18px;
+  bottom: -18px;
+  right: -18px;
+  z-index: -1;
+  border-radius: 50%;
+  box-shadow: inset 0px 8px 48px #ddd;
+}
+
+.nav_new a:hover {
+  text-decoration: none;
+  color: #555;
+  background: #f5f5f5;
+}
+
+#login_form {
+	width: 300px;
+	background: #f0f0f0 url(../img/login_bg.jpg) repeat-x 0 0;
+	border: 1px solid white;
+	margin: 250px auto 0;
+	padding: 1em;
+	-moz-border-radius: 3px;
+}
+
+input[type=text], input[type=password],select {
+	display: block;
+	margin: 0 0 1em 0;
+	width: 380px;
+	border: 2px solid #1F828A;
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	padding: 12px;
+  border-radius:10px;
+  text-align: center;
+  transition: box-shadow 1s;
+  float:right;
+}
+input[type=text]:focus, input[type=password]:focus{
+  border: 2px solid #13546E;
+/*   color:#fff; */
+/*   background-color: #13546E; */
+  box-shadow: inset 0px 0px 10px #13546E;
+  box-shadow:  0px 0px 10px #13546E;
+}
+
+input[type=submit], form a {
+	border: none;
+	margin-right: 1em;
+	padding: 10px;
+	text-decoration: none;
+	font-size: 12px;
+	background: #1F828A;
+	color: white;
+/* 	box-shadow: 0px 0.0625em 0.125em rgba(0, 0, 0, 0.125), 0px -0.25em 0px -0.125em rgba(0, 0, 0, 0.125) inset, 1em 0px 0px -0.7em rgba(254, 247, 247, 0) inset, -2em 0px 0px -0.3em rgba(249, 241, 241, 0) inset; */
+  width: 380px;
+  margin-left:0%;
+  font-size: 20px;
+  border-radius: 8px;
+  border-bottom: 5px solid #13546E;
+  transition: all 0.05s;
+
+
+}
+.submit_marign{
+    margin-left: 16% !important;;
+}
+
+input[type=submit]:hover, form a:hover {
+/* 	background: #E75854; */
+	cursor: pointer;
+  border-bottom: 0px solid #F8DFC9;
+  margin-top:5px;
+}
+.outlet_insert{
+  display: block;
+  overflow: hidden;
+  width: 500px;
+  background-color: #FFF;
+  margin-left:30%;
+  color: #13546E;
+  margin-top:10%;
+  margin-bottom: 5%;
+  border-top:15px solid #13546E;
+  border-bottom:2px solid #13546E;
+  box-shadow: 0px 2px 5px #13546E;
+  border-radius: 15px;
+}
+.inner_outlet_insert{
+  display: block;
+  overflow: hidden;
+  padding: 13%;
+  background: #f7f7f7 url(../images/1/sneaker_mesh_fabric.png) repeat;
+}
+.anchor_class a{
+  display: block;
+  text-align: center;
+}
+.anchor_class a:hover{
+  list-style: none;
+}
+label {
+    /* Other styling.. */
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}
+.reduce_width{
+  width: 615px !important;
+}
+
+.reduce_padding{
+  padding: 4% !important;
+}
+
+

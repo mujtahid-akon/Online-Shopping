@@ -1,0 +1,106 @@
+.outer_div{
+	display: block;
+	overflow: hidden;
+
+}
+.outer_div h2{
+	
+}
+.head_2{
+	background-color:#1F828A;
+	display: block;
+	overflow: hidden;
+	margin:1% 2%;
+	padding:1%;
+	color: #fff;
+	border-bottom:5px solid #13546E;
+}
+
+.delet_row{
+	display: block;
+	overflow: hidden;
+	
+/* 	height:70px; */
+	background-color: #fff;
+	margin:.5% 2%;
+	border-radius: 5px;
+	width: 40%;
+	float:left;
+	
+}
+
+.left_div{
+	display: block;
+	overflow: hidden;
+	float:none;
+	background-color:#1F828A;
+/* 	height: 70px; */
+	border-bottom: 5px solid #13546E;
+}
+.left_div h2{
+	display: block;
+	overflow: hidden;
+/* 	height: 70px; */
+	margin-top: 0px;
+}
+.left_div a{
+	display: block;
+	overflow: hidden;
+	font-size: 22px;
+	padding: 3% 40%;
+	color: #fff;
+/* 	transition: all 0.05s; */
+	
+}
+.left_div a:hover{
+	list-style: none;
+	text-decoration: none;
+	background-color: #13546E;
+/* 	height: 60px; */
+}
+.reduce_padding{
+	height: 50px;
+}
+.right_div{
+	display: block;
+	overflow: hidden;
+	background-color: #0D695C;
+	padding: .5%;
+	color: #fff;
+	border-bottom: 5px solid #13546E;
+
+}
+.name{
+
+}
+.description{
+	
+}
+.home{
+	display: block;
+	overflow: hidden;
+	
+}
+.home a{
+	display: block;
+	overflow: hidden;
+	color: #fff;
+	background-color:#1F828A;
+	width:100px;
+	padding: .5% 2%;
+	margin-left: 45%;
+	border-radius: 5px;
+	border-bottom: 3px solid #13546E;
+	
+}
+
+.home a:hover{
+	border-bottom: 0px solid #D2413D;
+	margin-top:3px;
+	text-decoration: none;
+	
+}
+
+
+
+
