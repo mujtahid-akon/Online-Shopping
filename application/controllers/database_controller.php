@@ -4,9 +4,14 @@ class Database_controller extends CI_Controller
 	function index()
 	{
 		$this->load->model('product_model');
+		$this->load->model('category_model');
+		$this->load->model('sub_category_model');
 		$data['products'] = $this->product_model->get_records();
+		$data['categories'] = $this->category_model->get_records();
+		$data['sub_categories'] = $this->sub_category_model->get_records();
 		//$row_data['login_type'] =null;
 		//$this->session->userdata($row_data) ;
+		//$this->sub_category_model->get_records_json(1);
 		$this->load->view('home',$data);
 		// $this->load->view('test_z',$data);
 	}
@@ -17,8 +22,27 @@ class Database_controller extends CI_Controller
 
 		redirect('emp_site/members_area');
 	}
+
+	function show_sub_category_wise_product()
+	{
+		$this->load->model('product_model');
+		$this->load->model('category_model');
+		$this->load->model('sub_category_model');
+		$data['products'] = $this->product_model->get_records();
+		$data['categories'] = $this->category_model->get_records();
+		$data['sub_categories'] = $this->sub_category_model->get_records();
+		foreach ($data['sub_categories'] as $sub_category) {
+			if($this->uri->segment(3)== $sub_category->SUB_CAT_ID){
+				$data['sub_cat_name'] = $sub_category->NAME;
+				break;
+			}
+		}
+		//print_r($data['sub_categories']);
+		$data['sub_cat_id'] = $this->uri->segment(3);
+		//echo $this->uri->segment(3);
+		$this->load->view('sub_category_wise_product_list', $data);
+	}
 	//========================================
-	
 	function add()
 	{
 
@@ -104,6 +128,8 @@ class Database_controller extends CI_Controller
 			'rowid' => $rowid,
 			'qty' => 0
 			));
+
+//		redirect($_SERVER['HTTP_REFERER']);
 		$this->loadAfterRemove();
 		//redirect('Database_controller');
 	}

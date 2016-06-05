@@ -304,6 +304,7 @@ p {
     border-radius: 10px;
     float: right;
 }
+
 #prompt{
     transition: all 1s;
     display: none;

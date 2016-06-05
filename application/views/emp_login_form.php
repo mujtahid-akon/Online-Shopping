@@ -21,10 +21,10 @@
 	echo form_open('emp_login/validate_credentials');
 	//echo validation_errors('<p class="error">');
 	
-	echo form_input('user_name', 'Username');
+	echo form_input('user_name', '', 'placeholder=Username');
 	echo form_error('user_name');
 	
-	echo form_password('password', 'Password');
+	echo form_password('password', '', 'placeholder=Password');
 	echo form_error('password');
 	echo form_submit('submit', 'Login');
 	echo anchor('emp_login/signup', 'Create Account');

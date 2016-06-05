@@ -10,6 +10,11 @@
   <link rel="stylesheet" href="<?php echo base_url();?>css/insert_outlet_style.css">
   <link rel="stylesheet" href="<?php echo base_url();?>css/insert_sub_category_style.css">	
 	<title>Employee Signup</title>
+  <script>
+    $(document).ready(function(){
+      $("#OUTLET_ID > option").eq(0).attr("disabled", "disabled");
+    });
+  </script>
 </head>
 <body>
 	
@@ -22,25 +27,29 @@
    
 echo form_open('emp_login/create_member');
 
-echo form_input('FIRST_NAME', set_value('FIRST_NAME', 'First Name'));
+
+echo form_input('FIRST_NAME', '','placeholder= "First Name"');
 echo form_error('FIRST_NAME');
-echo form_input('LAST_NAME', set_value('LAST_NAME', 'Last Name'));
+echo form_input('LAST_NAME', '','placeholder= "First Name"');
+
 echo form_error('LAST_NAME');
 // echo form_input('OUTLET_ID', set_value('OUTLET_ID', 'Outlet ID'));
 // echo form_error('OUTLET_ID');
 // echo "Select Outlet<br>";
-echo form_dropdown('OUTLET_ID',$outlet_list);
+
+echo form_dropdown('OUTLET_ID',array( '' => "Select an outlet") + $outlet_list,'', 'id="OUTLET_ID"');
 echo form_error('OUTLET_ID');
 
-echo form_input('EMAIL', set_value('EMAIL', 'Email Address'));
+echo form_input('EMAIL', '','placeholder="Email Address"');
 echo form_error('EMAIL');
 ?>
 <?php
-echo form_input('USER_NAME', set_value('USER_NAME', 'Username'));
+echo form_input('USER_NAME', '','placeholder="Username"');
 echo form_error('USER_NAME');
-echo form_password('PASSWORD', set_value('PASSWORD', 'Password'));
+echo form_password('PASSWORD', '','placeholder="Password"');
 echo form_error('PASSWORD');
-echo form_password('PASSWORD2',set_value('PASSWORD2', 'Confirm Password'));
+echo form_password('PASSWORD2','','placeholder="Confirm Password"');
+
 echo form_error('PASSWORD2');
 
 // echo form_submit('submit', 'Create Acccount');

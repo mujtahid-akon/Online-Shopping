@@ -232,6 +232,11 @@ class Insert_database_controller extends CI_Controller
 			}
 		}
 	}
+	function auto_retrieve_sub_category_info(){
+		$this->load->model('sub_category_model');
+		$category_id = filter_input(INPUT_GET, "category", FILTER_SANITIZE_NUMBER_INT);
+		echo $this->sub_category_model->get_records_json($category_id);
+	}
 	function update_sub_cat()
 	{
 		$CATEGORY_ID = $this->input->post('CATEGORY_ID');

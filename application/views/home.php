@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Online Shopping</title>
+<base href="<?php echo site_url('database_controller');?>/">
 <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
 <link href="<?php echo base_url();?>css/style _menu.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url();?>css/style.css" rel="stylesheet" type="text/css" />
@@ -20,7 +21,6 @@
 <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
 
 
-
 <link href="<?php echo base_url();?>css/animate.min.css" rel="stylesheet" type="text/css" />
 
 
@@ -33,17 +33,6 @@
     }
 
 </style>
-
-<script>
-$(document).ready(function(){
-	// $(".cart_outside").css("display", "none");
- //    $(".select_div").click(function(){
- //        $(".cart_outside").css("display", "block");
- //    });
-});
-</script>
-
-
 
 </head>
 <body>
@@ -72,46 +61,26 @@ $(document).ready(function(){
         <!-- <li class="active menu_li"><a class="menu_li_a" href="#">Home</a></li> -->
         <a href="<?php echo site_url('database_controller') ?>"><i class="fa fa-cog fa-spin fa_logo"></i></a>
         <li class="menu_li"><a class="menu_li_a" href="#">About</a></li>
-        <li class="dropdown menu_li">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle menu_li_a">Backery <b class="caret"></b></a>
-            <ul class="dropdown-menu dropdown_ul">
-                <li ><a href="#">Cake</a></li>
-                <li><a href="#">Snakes</a></li>
-                <li><a href="#">Sweets</a></li>
-            </ul>
-        </li>
-        <li class="dropdown menu_li">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle menu_li_a">Dairy-Frozen <b class="caret"></b></a>
-            <ul class="dropdown-menu dropdown_ul">
 
-                <li ><a href="#">Butter</a></li>
-                <li><a href="#">Chese</a></li>
-                <li><a href="#">Paneer</a></li>
-                <li><a href="#">Sweets</a></li>
-                
-                <li ><a href="#">Butter</a></li>
-                <li><a href="#">Chese</a></li>
-                <li><a href="#">Paneer</a></li>
-                <li><a href="#">Sweets</a></li>
-                
-                <li ><a href="#">Butter</a></li>
-                <li><a href="#">Chese</a></li>
-                <li><a href="#">Paneer</a></li>
-                <li><a href="#">Sweets</a></li>
-                
-            </ul>
-        </li>
+        
+        <?php foreach ($categories as $category): ?>
+        	<li class="dropdown menu_li">
+	            <a href="show_category_wise_product/<?php echo $category->CATEGORY_ID;?>" data-toggle="dropdown" class="dropdown-toggle menu_li_a"><?php echo $category->CATEGORY_NAME; ?> <b class="caret"></b></a>
+	            <ul class="dropdown-menu dropdown_ul">
+	            	<!-- <?php foreach ($sub_categories as $sub_category): ?>
+		                <li ><a href="#">Cake</a></li>
+	            	<?php endforeach ?> -->
+	            	<?php foreach ($sub_categories as $sub_category) {
+	            		if ( $sub_category->CATEGORY_ID == $category->CATEGORY_ID ) {
+	            			echo "<li ><a href=\"show_sub_category_wise_product/{$sub_category->SUB_CAT_ID}\"> {$sub_category->NAME} </a></li>" ;
+	            		}
+	            	}
+	         		?>
+	            </ul>
+	        </li>
 
+        <?php endforeach ?>
 
-        <li class="dropdown menu_li">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle menu_li_a">Fruit  s-Vegetables <b class="caret"></b></a>
-            <ul class="dropdown-menu dropdown_ul">
-                <li ><a href="#">Local Fruits</a></li>
-                <li><a href="#">Local Vegetables</a></li>
-                <li><a href="#">Organics</a></li>
-                <li><a href="#">Imported Fruits</a></li>
-            </ul>
-        </li>
     </ul>
  </div>
 
@@ -181,7 +150,8 @@ $(document).ready(function(){
 	      </div>
 	      <div class="description">
 	        <h4><a href=" "><?php echo $product->PRODUCT_NAME;?></a></h4>
-	        <p class="size">Our Price/1.00 Each</p>
+	        <p class="size">Unit Price/1.00 Each</p>
+
 	      </div>
 	      <div class="price">
 	          <span class="sale-price"><?php echo $product->SELL_UNIT_PRICE;?></span>
@@ -190,6 +160,7 @@ $(document).ready(function(){
 
 
 	        
+
 	        <form action="" method="post" accept-charset="utf-8">
 	        <label>Qty:
 	          <input id="quantity" type="number" min="0" maxlength="5" value="1" name="quantity" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset ui-mini q-mini">  
@@ -209,6 +180,8 @@ $(document).ready(function(){
 
 	<?php endforeach?>  
 </div>
+
+
 <?php if ($cart = $this->cart->contents() ):?>	
 <div class="hide_cart">
  <div class = "cart">	
@@ -244,7 +217,7 @@ $(document).ready(function(){
 
 <div class="show_cart">
  <div class = "cart">	
-	 <h2>Shoping Cart By Ajax</h2>
+	 <h2>Shoping Cart</h2>
 	 <div id="product_lists">
 	 </div>
 </div>
