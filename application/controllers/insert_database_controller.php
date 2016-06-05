@@ -31,6 +31,8 @@ class Insert_database_controller extends CI_Controller
 	// ==========================================
 	function insert_product()
 	{
+        $this->load->helper(array('form', 'url'));
+
 		$this->load->model('outlet_model');
 		
 		if($query = $this->outlet_model->get_records())
@@ -51,11 +53,12 @@ class Insert_database_controller extends CI_Controller
 		}		
 		$data['error'] = 'TRUE';
 
-		 $this->load->view('product/product_form',$data);
+		$this->load->view('product/product_form',$data);
 	}
 	function create_product()
 	{
 		 $this->load->library('form_validation');
+        $file_name = $this->do_upload();
 
 		// field name, error message, validation rules
 		$this->form_validation->set_rules('OUTLET_ID', 'OUTLET NAME', 'trim|required');
@@ -100,7 +103,7 @@ class Insert_database_controller extends CI_Controller
 		{
 			$this->load->model('product_model');
 
-			if($query = $this->product_model->create_product())
+			if($query = $this->product_model->create_product($file_name))
 			{
 
 				 echo "<script>alert('New product was seccessfully inserted!');</script>";
@@ -260,5 +263,33 @@ class Insert_database_controller extends CI_Controller
 		
 	
 		
-	}	
+	}
+    function do_upload()
+    {
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size']	= '1000';
+        $config['max_width']  = '0';
+        $config['max_height']  = '0';
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload())
+        {
+            $error = array('error' => $this->upload->display_errors());
+
+//            $this->load->view('upload_form', $error);
+           echo $error['error'];
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+
+            //$this->load->view('upload_success', $data);
+            echo "Upload Success!";
+            echo $data ['upload_data']['file_name'];
+            //print_r($data);
+            return $data ['upload_data']['file_name'];
+        }
+    }
 }	

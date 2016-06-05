@@ -30,7 +30,7 @@
             <h2 style="color:red;">Please select from dropdown carefully</h2>
           <?php endif ?>
 
-    <form action="http://localhost/ci/index.php/insert_database_controller/create_product" method="post" accept-charset="utf-8">
+    <form action="http://localhost/ci/index.php/insert_database_controller/create_product" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 
     <select  name="OUTLET_ID"  >
       <!-- <option value="" selected class="select_item">Select  OUTLET Name</option> -->
@@ -66,9 +66,12 @@
     <input type="text" name="PRODUCT_IN_STOCK" value="<?php echo set_value('PRODUCT_IN_STOCK', 'PRODUCT_IN_STOCK'); ?>"  />
     <input type="text" name="PRODUCT_VENDOR" value="<?php echo set_value('PRODUCT_VENDOR', 'PRODUCT_VENDOR'); ?>"  />
     <input type="text" name="RATING" value="<?php echo set_value('RATING', 'RATING'); ?>"  />
+
+    <input type="file" name="userfile" size="20"  />
     <input type="text" name="IMAGE" value="<?php echo set_value('IMAGE', 'IMAGE'); ?>"  />
     <input type="submit" name="submit" value="INSERT"  />
     <?php echo validation_errors('<p class = "error">'); ?>
+    </form>
   </div>
 </div>
 
