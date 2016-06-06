@@ -68,6 +68,7 @@
     <input type="text" name="RATING" value="<?php echo set_value('RATING', 'RATING'); ?>"  />
 
     <input type="file" name="userfile" size="20"  />
+    <br>
     <input type="text" name="IMAGE" value="<?php echo set_value('IMAGE', 'IMAGE'); ?>"  />
     <input type="submit" name="submit" value="INSERT"  />
     <?php echo validation_errors('<p class = "error">'); ?>

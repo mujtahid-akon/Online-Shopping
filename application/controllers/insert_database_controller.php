@@ -59,7 +59,7 @@ class Insert_database_controller extends CI_Controller
 	{
 		 $this->load->library('form_validation');
         $file_name = $this->do_upload();
-
+        if ($file_name==null) goto p;
 		// field name, error message, validation rules
 		$this->form_validation->set_rules('OUTLET_ID', 'OUTLET NAME', 'trim|required');
 		$this->form_validation->set_rules('CATEGORY_ID', 'CATEGORY NAME', 'trim|required');
@@ -77,7 +77,8 @@ class Insert_database_controller extends CI_Controller
 
 		 if($this->form_validation->run() == FALSE)
 		 {
-			$this->load->model('outlet_model');
+			p:
+             $this->load->model('outlet_model');
 			
 			if($query = $this->outlet_model->get_records())
 			{
@@ -277,17 +278,19 @@ class Insert_database_controller extends CI_Controller
         if ( ! $this->upload->do_upload())
         {
             $error = array('error' => $this->upload->display_errors());
-
 //            $this->load->view('upload_form', $error);
-           echo $error['error'];
+
+            echo '<script >alert("'. $error['error'] .'")</script>';
+            return null;
         }
         else
         {
             $data = array('upload_data' => $this->upload->data());
 
             //$this->load->view('upload_success', $data);
-            echo "Upload Success!";
-            echo $data ['upload_data']['file_name'];
+            /echo "Upload Success!";
+            //echo '<script >alert("'. $error['error'] .'")</script>';
+            //echo $data ['upload_data']['file_name'];
             //print_r($data);
             return $data ['upload_data']['file_name'];
         }
