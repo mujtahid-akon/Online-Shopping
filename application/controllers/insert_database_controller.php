@@ -72,7 +72,7 @@ class Insert_database_controller extends CI_Controller
 		$this->form_validation->set_rules('PRODUCT_IN_STOCK', 'PRODUCT_IN_STOCK', 'trim|required|numeric');
 		$this->form_validation->set_rules('PRODUCT_VENDOR', 'PRODUCT_VENDOR', 'trim|required');
 		$this->form_validation->set_rules('RATING', 'RATING', 'trim|required|numeric');
-		$this->form_validation->set_rules('IMAGE', 'IMAGE', 'trim|required');
+//		$this->form_validation->set_rules('IMAGE', 'IMAGE', 'trim|required');
 
 
 		 if($this->form_validation->run() == FALSE)
@@ -280,7 +280,7 @@ class Insert_database_controller extends CI_Controller
             $error = array('error' => $this->upload->display_errors());
 //            $this->load->view('upload_form', $error);
 
-            echo '<script >alert("'. $error['error'] .'")</script>';
+            echo '<script >alert("'. $error['error'] .'");</script>';
             return null;
         }
         else
