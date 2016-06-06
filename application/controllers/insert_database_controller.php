@@ -288,9 +288,8 @@ class Insert_database_controller extends CI_Controller
             $data = array('upload_data' => $this->upload->data());
 
             //$this->load->view('upload_success', $data);
-            /echo "Upload Success!";
-            //echo '<script >alert("'. $error['error'] .'")</script>';
-            //echo $data ['upload_data']['file_name'];
+//            echo "Upload Success!";
+//            echo $data ['upload_data']['file_name'];
             //print_r($data);
             return $data ['upload_data']['file_name'];
         }
