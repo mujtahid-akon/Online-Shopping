@@ -9,37 +9,31 @@ class Category_model extends CI_Model {
 		return $query->result();
 	}
 
-	function create_category()
+	function create_category($new_category_insert_data)
 	{
-		$new_category_insert_data = array(
 
-				'CATEGORY_NAME' => $this->input->post('CATEGORY_NAME'),
-				'CATEGORY_DESCRIPTION' => $this->input->post('CATEGORY_DESCRIPTION')
-			);
 		$insert = $this->db->insert('categories',$new_category_insert_data);
+		//echo "Printing insert ".$insert;
 		return $insert;
 	}
 
 
-	function update_category()
+	function update_category($new_category_update_data,$cat_id)
 	{
-		$new_category_update_data = array(
-
-				'CATEGORY_ID' => $this->input->post('CATEGORY_ID'),
-				'CATEGORY_NAME' => $this->input->post('CATEGORY_NAME'),
-				'CATEGORY_DESCRIPTION' => $this->input->post('CATEGORY_DESCRIPTION')
-			);
-		$this->db->where('CATEGORY_ID',$this->input->post('CATEGORY_ID') );
-		$this->db->update('categories',$new_category_update_data);
+		$this->db->where('CATEGORY_ID', $cat_id );
+		$result = $this->db->update('categories',$new_category_update_data);
+		return $result;
 	}
-	function delete_category()
+	function delete_category($CATEGORY_ID)
 	{
-		$this->db->where('CATEGORY_ID',$this->uri->segment(3));
+		$this->db->where('CATEGORY_ID',$CATEGORY_ID);
 		$q = $this->db->delete('categories');
+		
 		if(!$q)
 		{
 				 echo "<script>alert('You can not delete this category.May be you should think some foreign key constrains');</script>";
 
-		}		
-	}	
+		}
+		return $q;		
+	}
 }

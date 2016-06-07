@@ -30,7 +30,7 @@ echo form_open('emp_login/create_member');
 
 echo form_input('FIRST_NAME', '','placeholder= "First Name"');
 echo form_error('FIRST_NAME');
-echo form_input('LAST_NAME', '','placeholder= "First Name"');
+echo form_input('LAST_NAME', '','placeholder= "Last Name"');
 
 echo form_error('LAST_NAME');
 // echo form_input('OUTLET_ID', set_value('OUTLET_ID', 'Outlet ID'));

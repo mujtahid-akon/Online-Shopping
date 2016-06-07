@@ -138,14 +138,46 @@ class Database_controller extends CI_Controller
 		$this->cart->destroy();
 		redirect('database_controller');
 	}
-	function order()
+function order()
 	{
 		$this->load->model('order_model');
 		if( $this->session->userdata('login_type')=='customer' ) 
-			$this->order_model->create_order();
+		{
+			$new_order_insert_data = array(
+			    'CUSTOMER_ID' => $this->session->userdata('user_info')->CUSTOMER_ID
+			);
+			$this->db->set('ORDER_DATE', 'NOW()', FALSE);
+			$this->db->insert('orders', $new_order_insert_data);
+			$order_id = $this->db->insert_id();
+			$cart = $this->cart->contents();
+
+			$prods = array();
+			foreach ($cart as $item)
+			{
+				$new_product_ordered_insert_data = array(
+				    'PRODUCT_ID' => $item['id'],
+				    'OUTLET_ID'	 => 1,
+				    'ORDER_ID'   => $order_id,
+				    'QUANTITY'   => $item['qty']
+				);
+
+				$prods = array($new_product_ordered_insert_data);
+
+				//$this->db->insert('products_ordered', $new_product_ordered_insert_data);		
+
+			}
+
+			$this->order_model->create_order($new_order_insert_data, $prods);
+			$total_dollar = $this->cart->total();
+			$arr = array(
+					'total' => $total_dollar
+			);
+			$this->cart->destroy();
+			$this->load->view('paypal_view',$arr);
+		}
 		else 
 			$this->load->view('login_form');
-	}	
+	}		
 	function load_update_order_view()
 	{
 		$this->load->model('order_model');
@@ -200,10 +232,15 @@ class Database_controller extends CI_Controller
 		$this->load->view('update_order_form',$sub_row);
 	
 	}
-	function now_update_order_status()
+function now_update_order_status()
 	{
+		$new_outlet_order_status_data = array(
+			'STATUS' => $this->input->post('STATUS'),
+			'EMPLOYEE_ID' => $this->input->post('EMPLOYEE_ID')
+		);
+		$order_id = $this->input->post('ORDER_ID');
 		$this->load->model('order_model');
-		$this->order_model->update_order_status();
+		$this->order_model->update_order_status($new_outlet_order_status_data, $order_id);
 		redirect('database_controller/load_update_order_view');		
 	}
 	function show_details()

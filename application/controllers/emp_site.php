@@ -36,6 +36,11 @@ class Emp_site extends CI_Controller
 		$data['customer_name_addr'] = $this->customers_order_model->get_name_addr( $this->uri->segment(3) );
 		$data['order_status'] = $this->customers_order_model->get_order_status( $this->uri->segment(3) );
 		$data['order_price'] = $this->customers_order_model->total_order_price( $this->uri->segment(3) );
+		if($data['order_details']==false){
+			echo '<script> if(!alert("Sorry! No Order history Found!")) window.location="'.base_url().'index.php/database_controller/load_update_order_view" </script>';
+			//redirect($_SERVER['HTTP_REFERER']);
+			return ;
+		}
 		// ============ load table=============
 		$this->load->library('table');
 		$data['product_table'] = $this->table->generate($data['order_details']);

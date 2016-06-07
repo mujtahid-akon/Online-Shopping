@@ -55,29 +55,33 @@ class Delete_database_controller extends CI_Controller
 // =================================================================================================
 	function delete_product()
 	{
+		$product_id = $this->uri->segment(3);
 		$this->load->model('product_model');
-		$this->product_model->delete_product();
-		$this->load_delete_product_view();
+		$this->product_model->delete_product($product_id);
+		return $this->load_delete_product_view();
 
 	}
 	function delete_sub_category()
 	{
+		$sub_cat_id = $this->uri->segment(3);
 		$this->load->model('sub_category_model');
-		$this->sub_category_model->delete_sub_category();
+		$this->sub_category_model->delete_sub_category($sub_cat_id);
 		$this->load_delete_sub_category_view();
 
 	}
 	function delete_category()
 	{
+		$CATEGORY_ID = $this->uri->segment(3);
 		$this->load->model('category_model');
-		$this->category_model->delete_category();
+		$this->category_model->delete_category($CATEGORY_ID);
 		$this->load_delete_category_view();
 
 	}	
 	function delete_outlet()
 	{
+		$outlet_id = $this->uri->segment(3);
 		$this->load->model('outlet_model');
-		$this->outlet_model->delete_outlet() ;
+		$this->outlet_model->delete_outlet($outlet_id) ;
 		
 
 

@@ -52,8 +52,14 @@ class Site extends CI_Controller
 		$data['order_status'] = $this->customers_order_model->get_order_status( $this->uri->segment(3) );
 		$data['order_price'] = $this->customers_order_model->total_order_price( $this->uri->segment(3) );
 		// ============ load table=============
+		if($data['order_details']==false){
+			echo '<script> if(!alert("Sorry! No Order history Found!")) window.location="'.base_url().'index.php/site/get_order_details" </script>';
+			//redirect($_SERVER['HTTP_REFERER']);
+			return ;
+		}
 		$this->load->library('table');
 		$data['product_table'] = $this->table->generate($data['order_details']);
+
 		//=====================================
 		$this->load->view('specific_order_vouchar', $data);
 	}

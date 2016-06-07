@@ -98,7 +98,7 @@ $(document).ready(function(){
 
 	      <div class="image"> 
 	        <a href="">
-	          <img src="<?php echo base_url();?>images/cp_egg_large_size_12pcs-160x180.jpg" alt="CP EGG LARGE SIZE 12PCS" class="img-responsive">
+	          <img src="<?php echo "../../".(($product->IMAGE==NULL) ? "images/cp_egg_large_size_12pcs-160x180.jpg": "uploads/$product->IMAGE") ?>" alt="CP EGG LARGE SIZE 12PCS" class="img-responsive">
 	        </a> 
 	      </div>
 	      <div class="description">

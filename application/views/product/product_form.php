@@ -30,7 +30,7 @@
             <h2 style="color:red;">Please select from dropdown carefully</h2>
           <?php endif ?>
 
-    <form action="http://localhost/ci/index.php/insert_database_controller/create_product" method="post" accept-charset="utf-8">
+    <form action="http://localhost/ci/index.php/insert_database_controller/create_product" enctype="multipart/form-data" method="post" accept-charset="utf-8">
 
     <select  name="OUTLET_ID"  >
       <!-- <option value="" selected class="select_item">Select  OUTLET Name</option> -->
@@ -58,17 +58,21 @@
     </select>
 
 
-    <input type="text" name="PRODUCT_NAME" value="<?php echo set_value('PRODUCT_NAME', 'PRODUCT_NAME'); ?>"  />
-    <input type="text" name="UNIT_QUANTITY" value="<?php echo set_value('UNIT_QUANTITY', 'UNIT_QUANTITY'); ?>"  />
-    <input type="text" name="BUY_UNIT_PRICE" value="<?php echo set_value('BUY_UNIT_PRICE', 'BUY_UNIT_PRICE'); ?>"  />
-    <input type="text" name="SELL_UNIT_PRICE" value="<?php echo set_value('SELL_UNIT_PRICE', 'SELL_UNIT_PRICE'); ?>"  />
-    <input type="text" name="DESCRIPTION" value="<?php echo set_value('DESCRIPTION', 'DESCRIPTION'); ?>"  />
-    <input type="text" name="PRODUCT_IN_STOCK" value="<?php echo set_value('PRODUCT_IN_STOCK', 'PRODUCT_IN_STOCK'); ?>"  />
-    <input type="text" name="PRODUCT_VENDOR" value="<?php echo set_value('PRODUCT_VENDOR', 'PRODUCT_VENDOR'); ?>"  />
-    <input type="text" name="RATING" value="<?php echo set_value('RATING', 'RATING'); ?>"  />
-    <input type="text" name="IMAGE" value="<?php echo set_value('IMAGE', 'IMAGE'); ?>"  />
+    <input type="text" name="PRODUCT_NAME" value="" placeholder="PRODUCT NAME"  />
+    <input type="text" name="UNIT_QUANTITY" value=""  placeholder="UNIT QUANTITY" />
+    <input type="text" name="BUY_UNIT_PRICE" value="" placeholder="BUYING UNIT PRICE" />
+    <input type="text" name="SELL_UNIT_PRICE" value="" placeholder="SELLING UNIT_PRICE" />
+    <input type="text" name="DESCRIPTION" value="" placeholder="DESCRIPTION" />
+    <input type="text" name="PRODUCT_IN_STOCK" value="" placeholder="PRODUCT IN STOCK" />
+    <input type="text" name="PRODUCT_VENDOR" value="" placeholder="PRODUCT VENDOR" />
+    <input type="text" name="RATING" value="" placeholder="RATING"  />
+    Select an image:
+    <br /><br/>
+    <input type="file" name="userfile" size="20"  />
+    <br>
     <input type="submit" name="submit" value="INSERT"  />
     <?php echo validation_errors('<p class = "error">'); ?>
+    </form>
   </div>
 </div>
 

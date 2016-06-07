@@ -2,26 +2,26 @@
 
 class Emp_membership_model extends CI_Model {
 
-	function validate()
-	{
-		$this->db->where('USER_NAME', $this->input->post('user_name'));
-		$this->db->where('PASSWORD', md5($this->input->post('password')));
-		$query = $this->db->get('employees');
-		
+	function validate($username,$password)
+{
+	$this->db->where('USER_NAME',$username );
+	$this->db->where('PASSWORD', md5($password));
+	$query = $this->db->get('employees');
 
-		if($query->num_rows() == 1)
-		{
-			return $query->result();
-		}
-		else{
-			return false;
-		}
-		
+
+	if($query->num_rows() == 1)
+	{
+		return $query->result();
+	}
+	else{
+		return false;
 	}
 
-	function is_user_existed()
+}
+
+	function is_user_existed($username)
 	{
-		$this->db->where('USER_NAME', $this->input->post('USER_NAME'));
+		$this->db->where('USER_NAME', $username);
 		$query = $this->db->get('employees');
 		
 		if($query->num_rows() == 1)
@@ -33,25 +33,16 @@ class Emp_membership_model extends CI_Model {
 		}
 	}
 
-	function create_member()
+	function create_member($new_employee_insert_data)//input is an array
 	{
-		
-		$new_employee_insert_data = array(
-			'FIRST_NAME' => $this->input->post('FIRST_NAME'),
-			'LAST_NAME' => $this->input->post('LAST_NAME'),
-			'OUTLET_ID' => $this->input->post('OUTLET_ID'),
-			'EMAIL' => $this->input->post('EMAIL'),			
-			'USER_NAME' => $this->input->post('USER_NAME'),
-			'PASSWORD' => md5($this->input->post('PASSWORD'))						
-		);
 		
 		$insert = $this->db->insert('employees', $new_employee_insert_data);
 		return $insert;
 	}
 
-	function is_outlet_present()
+	function is_outlet_present($outlet_id)
 	{
-		$this->db->where('OUTLET_ID', $this->input->post('OUTLET_ID'));
+		$this->db->where('OUTLET_ID', $outlet_id);
 		$query = $this->db->get('outlets');
 		
 		if($query->num_rows() == 1)
@@ -95,8 +86,8 @@ class Emp_membership_model extends CI_Model {
 		//echo $this->table->generate($query);
 		if($query->num_rows() !=0)
 		{
-			return $query;
-			// print_r($query->result());
+			//print_r($query->result());
+			return $query; 
 		}
 		else{
 			return false;

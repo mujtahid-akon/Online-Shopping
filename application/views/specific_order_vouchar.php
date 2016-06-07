@@ -3,7 +3,8 @@
 <html lang= "en">
 <head>
 	<meta http-equiv="Content-Type" content= "text/html; charset=utf-8">
-	<link rel="stylesheet" href="<?php echo base_url();?>css/table.css">
+	<base href="<?php echo base_url();?>" />
+	<link rel="stylesheet" href="css/table.css">
 	<title>order Vouchar</title>
 </head>
 <body>

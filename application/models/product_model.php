@@ -11,13 +11,13 @@ class Product_model extends CI_Model {
 	{
 		$this->db->distinct();
 		$this->db->select('categories.CATEGORY_ID,sub_categories.CATEGORY_ID,sub_categories.SUB_CAT_ID,sub_categories.NAME');
-		$this->db->from('categories');		
+		$this->db->from('categories');
 		$this->db->join('sub_categories', 'sub_categories.CATEGORY_ID = categories.CATEGORY_ID');
 
-		$query = $this->db->get();     
+		$query = $this->db->get();
 		return $query->result();
 	}
-	function create_product()
+	function create_product($file_name)
 	{
 		$new_product_insert_data = array(
 
@@ -32,7 +32,7 @@ class Product_model extends CI_Model {
 				'PRODUCT_IN_STOCK' => $this->input->post('PRODUCT_IN_STOCK'),
 				'PRODUCT_VENDOR' => $this->input->post('PRODUCT_VENDOR'),
 				'RATING' => $this->input->post('RATING'),
-				'IMAGE' => $this->input->post('IMAGE')
+				'IMAGE' => $file_name
 			);
 		 $insert = $this->db->insert('products',$new_product_insert_data);
 		 return $insert;
@@ -57,7 +57,7 @@ class Product_model extends CI_Model {
 				'IMAGE' => $this->input->post('IMAGE')
 			);
 		$this->db->where('PRODUCT_ID',$this->input->post('PRODUCT_ID') );
-		$this->db->update('products',$new_product_update_data);		
+		$this->db->update('products',$new_product_update_data);
 	}
 
 	function delete_product()
@@ -68,13 +68,13 @@ class Product_model extends CI_Model {
 		{
 				 echo "<script>alert('You can not delete this product.May be you should think some foreign key constrains');</script>";
 
-		}		
-	}	
+		}
+	}
 	function get($id)
 	{
 		$results = $this->db->get_where('products',array('PRODUCT_ID' =>$id))->result();
-		$result = $results[0];		
+		$result = $results[0];
 		return $result;
-	}	
+	}
 
 }

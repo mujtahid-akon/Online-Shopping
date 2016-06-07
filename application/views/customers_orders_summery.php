@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content= "text/html; charset=utf-8">
 	<link rel="stylesheet" href="<?php echo base_url();?>css/table.css">
 	<title>Total orders summery</title>
-	<base href = "<?php echo site_url('database_controller');?>/">
+	<base href = "<?php echo site_url('site');?>/">
 
 </head>
 <body>
